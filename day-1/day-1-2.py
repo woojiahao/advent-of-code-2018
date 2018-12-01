@@ -6,14 +6,14 @@ def find_frequency():
     data = [int(line.replace('\n', '')) for line in file.readlines()]
 
   total = 0
-  previous = [0]
+  previous = set()
 
   for value in itertools.cycle(data):
     total += value
     if total in previous:
       print(f'Found: {total}')
       break
-    previous.append(total)
+    previous.add(total)
 
 
 find_frequency()
